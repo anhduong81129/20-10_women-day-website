@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Door Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .door-container {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+      perspective: 1000px; /* important for 3D rotation */
+    }
+
+    .door-container:hover {
+      transform: scale(1.05);
+    }
+
+    .door-img {
+      width: 60vw; /* ✅ Relative size to viewport width */
+      max-width: 400px;
+      height: auto;
+      transform-origin: left center; /* where the door rotates from */
+      transition: transform 1s ease;
+    }
+
+    .door-text {
+      margin-top: 15px;
+      font-size: clamp(16px, 5vw, 22px);
+      color: #b30059;
+      font-weight: bold;
+    }
+
+    /* Keyframes for swinging door */
+    @keyframes openDoor {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(-100deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="door-container" onclick="openDoorAndEnter()">
+    <img 
+      src="https://luxdoors.com/cdn/shop/products/F66_680x680.png?v=1635746031" 
+      alt="Door" 
+      class="door-img" 
+      id="door">
+    <div class="door-text">Gõ cửa để vào 🚪</div>
+  </div>
+
+  <script>
+    function openDoorAndEnter() {
+      const door = document.getElementById('door');
+      // add animation to the door
+      door.style.animation = 'openDoor 1s forwards';
+
+      // after animation ends, navigate to main page
+      setTimeout(() => {
+        window.location.href = '20-10_women_day.html'; // change if your file name is different
+      }, 1000); // same as animation duration
+    }
+  </script>
+
+</body>
+</html>
