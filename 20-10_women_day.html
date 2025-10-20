@@ -22,6 +22,23 @@
       z-index: 2;
     }
 
+    .welcome-text {
+      font-size: 22px;
+      color: #b32568;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wish-text {
+      font-size: 18px;
+      color: #6a1b4d;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+      font-style: italic;
+    }
+
     label {
       font-size: 18px;
       margin-right: 10px;
@@ -81,20 +98,23 @@
 </head>
 <body>
 
-  <div class="header-text">Happy Women Day 💖</div>
+  <div class="header-text">Happy Vietnamese's Women Day 💖</div>
+  <div class="welcome-text">Welcome to Dương's page</div>
+  <div class="wish-text">Ngày 20/10, chúc mọi người một ngày thật vui vẻ, yêu đời, hạnh phúc bên gia đình, gặp nhiều may mắn tong cuộc sống ✨</div>
+
 
   <h2>Who are you? <span class="woman-icon">👩</span></h2>
 
   <div class="container">
     <label for="woman"> Ai đó? </label>
     <select id="woman" name="woman">
-      <option value="mrs-grandmother-1">Mrs Bà Nội </option>
-      <option value="mrs-grandmother-1">Mrs Bà Ngoại </option>
-      <option value="mrs-mother">Mrs Hoàn</option>
-      <option value="mrs-aunt-1">Mrs Quyên</option>
-      <option value="mrs-aunt-2">Mrs Nhàn</option>
-      <option value="mrs-aunt-3">Mrs Kim Anh</option>
-      <option value="mrs-sister">Ngân</option>
+      <option value="mrs-grandmother-1.html">Mrs Bà Nội </option>
+      <option value="mrs-grandmother-2.html">Mrs Bà Ngoại </option>
+      <option value="mrs-mother.html">Mrs Hoàn</option>
+      <option value="mrs-aunt-1.html">Mrs Quyên</option>
+      <option value="mrs-aunt-2.html">Mrs Nhàn</option>
+      <option value="mrs-aunt-3.html">Mrs Kim Anh</option>
+      <option value="mrs-sister.html">Ngân</option>
     </select>
 
     <br>
@@ -121,14 +141,11 @@
       document.body.appendChild(heart);
     }
 
-      const okButton = document.getElementById('okButton');
+      document.getElementById('okButton').addEventListener('click', function () {
       const select = document.getElementById('woman');
-
-      okButton.addEventListener('click', () => {
-        const value = select.value;
-        const text = select.options[select.selectedIndex].text;
-        alert(`You selected: ${text} ✅`);
-      });
+      const page = select.value;  // get the selected value (which is the file name)
+      window.location.href = page; // navigate to that page
+    });
 
   </script>
 

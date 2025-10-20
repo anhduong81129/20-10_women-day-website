@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cô Quyên</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+    }
+
+    .message {
+      font-size: 48px;
+      color: #6a1b4d;
+      position: relative;
+      text-align: center;
+      margin-top: 130px;
+      z-index: 2;
+    }
+
+    .wish-box {
+      display: inline-block;
+      background-color: #f2f2f2; /* light grey */
+      padding: 20px 20px 20px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 2;
+      max-width: 400px;
+    }
+
+    .wish-text {
+      font-size: 18px;
+      color: #6a1b4d;
+      font-style: italic;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 0, 100, 0.7);
+      font-size: 24px;
+      animation: fallHearts linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes fallHearts {
+      0% {
+        transform: translateY(-50vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) translateX(50px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="message"> 💗 <b>Cháu chào Cô Quyên</b> 💕</div>
+  <div class="wish-box">
+    <p class="wish-text">
+       💝🌟  Nhân ngày 20/10 - ngày Phụ Nữ Việt Nam, 
+       cháu xin gửi những lời chúc tốt đẹp nhất dành cho cô, 
+       chúc cô Quyên là luôn có sức khoẻ, hạnh phúc,
+       cháu chúc cô luôn gặp nhiều điều may trong cuộc sống,
+       tiền vô như nước, lộc lá thì đầy nhà
+       chúc cô sẽ luôn xinh đẹp, sẽ không gặp nhiều lo âu trong cuộc sống.
+       <br><b>Chúc cô một ngày 20-10 thật vui vẻ !</b> ✨ 💞  
+    </p>
+  </div>
+
+  <script>
+    const numHearts = 50; // number of hearts in the background
+
+    for (let i = 0; i < numHearts; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+
+      // random horizontal position across the screen
+      heart.style.left = Math.random() * 100 + 'vw';
+      // random falling duration
+      heart.style.animationDuration = (6 + Math.random() * 8) + 's';
+      // random size
+      heart.style.fontSize = (16 + Math.random() * 24) + 'px';
+      // slight delay so they don’t fall all at once
+      heart.style.animationDelay = Math.random() * -10 + 's';
+
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
